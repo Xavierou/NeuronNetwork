@@ -20,8 +20,8 @@ if __name__ == '__main__':
     z_prob = clf.predict_proba(np.c_[xx.ravel(), yy.ravel()])[:, 1].reshape(xx.shape)
 
     plt.figure(figsize=(6, 8), dpi=90)
-    plt.contourf(xx, yy, z_prob, alpha=0.25)
-    plt.scatter(x[:, 0], x[:, 1], c=y)
+    plt.contour(xx, yy, z_prob, levels=[0.5], linestyles='--')
+    plt.scatter(x[:, 0], x[:, 1], c=y, cmap=plt.cm.Accent)
     plt.xlim(xx.min(), xx.max())
     plt.ylim(yy.min(), yy.max())
     plt.xlabel('X', fontsize=15)
